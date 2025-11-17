@@ -1,0 +1,75 @@
+
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <title>Woordjes goed2 leren</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f2f6ff;
+      text-align: center;
+      margin-top: 60px;
+    }
+    h1 { color: #0033cc; }
+    input, button {
+      padding: 10px;
+      font-size: 16px;
+      margin: 8px;
+    }
+    #resultaat {
+      font-size: 18px;
+      margin-top: 15px;
+    }
+  </style>
+</head>
+<body>
+  <h1>🌍 Woordjes leren</h1>
+  <p id="vraag"></p>
+  <input type="text" id="antwoord" placeholder="Typ het antwoord...">
+  <button onclick="controleer()">Controleer</button>
+  <button onclick="volgende()">Volgende</button>
+  <p id="resultaat"></p>
+
+  <script>
+    // Je woordenlijst
+    const woorden = [
+      { nl: "hond2", en: "dog" },
+      { nl: "kat", en: "cat" },
+      { nl: "huis", en: "house" },
+      { nl: "boek", en: "book" },
+      { nl: "appel", en: "apple" }
+    ];
+
+    let huidig = 0;
+    const vraag = document.getElementById("vraag");
+    const resultaat = document.getElementById("resultaat");
+
+    function toonVraag() {
+      const woord = woorden[huidig];
+      vraag.textContent = `Wat is het Engelse woord voor: ${woord.nl}?`;
+      resultaat.textContent = "";
+      document.getElementById("antwoord").value = "";
+    }
+
+    function controleer() {
+      const invoer = document.getElementById("antwoord").value.trim().toLowerCase();
+      if (invoer === woorden[huidig].en) {
+        resultaat.textContent = "✅ Goed!";
+      } else {
+        resultaat.textContent = `❌ Fout, het juiste antwoord is "${woorden[huidig].en}".`;
+      }
+      huidig = (huidig + 1) % woorden.length;
+      setTimeout(toonVraag, 1500);
+    }
+
+    function volgende() {
+        <!-- resultaat.textContent = `Het juiste antwoord is "${woorden[huidig].en}".`;
+        setTimeout(toonVraag, 1500);
+        huidig = (huidig + 1) % woorden.length;  -->
+    }
+    
+    toonVraag();
+  </script>
+</body>
+</html>
