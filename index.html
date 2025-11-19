@@ -23,12 +23,14 @@
   </style>
 </head>
 <body>
-  <h1>🌍 Italiaanse woordjes leren (v6)</h1>
+  <h1>🌍 Italiaanse woordjes leren (v7)</h1>
 
 
   <button onclick="controleer()">Controleer</button>
   <button onclick="volgende()">Volgende</button><br>
-  <p id="vraag1"></p> <p id="vraag2"></p> 
+  <p id="vraag1"></p>
+  <input type="text" id="GevraagdeWoord" style="background-color: lightblue;">
+  <p id="vraag2"></p> 
   <input type="text" id="antwoordType" placeholder="Typ het antwoord...">
   <input type="text" id="antwoordDisp" placeholder="...">
 
@@ -74,8 +76,10 @@
 
     function toonVraag() {
       const woord = woorden[huidig];
+      document.getElementById("antwoordDisp").value = "";
       vraag1.textContent = `Wat is het italiaanse woord voor:`;
-      vraag2.textContent = `${woord.nl}?`;
+//      GevraagdeWoord.textContent = `${woord.nl}`;
+      GevraagdeWoord.textContent = woord.nl;
       resultaat.textContent = "";
       document.getElementById("antwoordType").value = "";
     }
