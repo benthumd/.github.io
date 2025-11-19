@@ -37,11 +37,35 @@
   <script>
     // Je woordenlijst
     const woorden = [
-      { nl: "hond2", en: "dog" },
-      { nl: "kat", en: "cat" },
-      { nl: "huis", en: "house" },
-      { nl: "boek", en: "book" },
-      { nl: "appel", en: "apple" }
+
+{ nl: "zijn", it: "essere " },
+{ nl: "hebben", it: "avere " },
+{ nl: "kunnen, mogen [als z.nw.: macht]", it: "potere " },
+{ nl: "weten, kennen; kunnen, weten hoe te [soms: smaken/ruiken/rieken (naar)]", it: "sapere " },
+{ nl: "moeten [ook: verschuldigd zijn (aan), te danken hebben (aan)] [als z.nw.: plicht]", it: "dovere " },
+{ nl: "willen", it: "volere " },
+{ nl: "komen", it: "venire " },
+{ nl: "houden, vasthouden", it: "tenere " },
+{ nl: "(ver)blijven, zich bevinden, zijn", it: "stare " },
+{ nl: "geven", it: "dare " },
+{ nl: "gaan", it: "andare " },
+{ nl: "doen; maken", it: "fare " },
+{ nl: "zeggen", it: "dire " },
+{ nl: "drinken", it: "bere " },
+{ nl: "bevallen [leuk/lekker vinden] [als z.nw.: plezier, genoegen, genot]", it: "piacere " },
+{ nl: "worden [door verandering of groei]", it: "diventare" },
+{ nl: "worden [door verandering of groei]", it: "divenire " },
+{ nl: "openen", it: "aprire " },
+{ nl: "kussen, zoenen", it: "baciare" },
+{ nl: "dansen", it: "ballare" },
+{ nl: "zoeken [+ di: proberen te]", it: "cercare" },
+
+      
+//      { nl: "hond2", en: "dog" },
+//      { nl: "kat", en: "cat" },
+//      { nl: "huis", en: "house" },
+//      { nl: "boek", en: "book" },
+//      { nl: "appel", en: "apple" }
     ];
 
     let huidig = 0;
@@ -50,24 +74,24 @@
 
     function toonVraag() {
       const woord = woorden[huidig];
-      vraag.textContent = `Wat is het Engelse woord voor: ${woord.nl}?`;
+      vraag.textContent = `Wat is het italiaanse woord voor: ${woord.nl}?`;
       resultaat.textContent = "";
       document.getElementById("antwoord").value = "";
     }
 
     function controleer() {
       const invoer = document.getElementById("antwoord").value.trim().toLowerCase();
-      if (invoer === woorden[huidig].en) {
+      if (invoer === woorden[huidig].it) {
         resultaat.textContent = "✅ Goed!";
       } else {
-        resultaat.textContent = `❌ Fout, het juiste antwoord is "${woorden[huidig].en}".`;
+        resultaat.textContent = `❌ Fout, het juiste antwoord is "${woorden[huidig].it}".`;
       }
       huidig = (huidig + 1) % woorden.length;
       setTimeout(toonVraag, 1500);
     }
 
     function volgende() {
-        resultaat.textContent = `Het juiste antwoord is "${woorden[huidig].en}".`;
+        resultaat.textContent = `Het juiste antwoord is "${woorden[huidig].it}".`;
         setTimeout(toonVraag, 1500);
         huidig = (huidig + 1) % woorden.length;
     }
