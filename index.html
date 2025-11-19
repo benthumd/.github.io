@@ -23,14 +23,13 @@
   </style>
 </head>
 <body>
-  <h1>🌍 Italiaanse woordjes leren</h1>
-  <p id="vraag"></p>
+  <h1>🌍 Italiaanse woordjes leren (v4)</h1>
+
 
   <button onclick="controleer()">Controleer</button>
   <button onclick="volgende()">Volgende</button><br>
-   <button onclick="toon_antwoord">Toon antwoord</button>
-
-    <input type="text" id="antwoord" placeholder="Typ het antwoord...">
+  <p id="vraag1"></p> <p id="vraag2"></p> 
+  <input type="text" id="antwoord" placeholder="Typ het antwoord...">
 
   <p id="resultaat"></p>
 
@@ -74,7 +73,8 @@
 
     function toonVraag() {
       const woord = woorden[huidig];
-      vraag.textContent = `Wat is het italiaanse woord voor: ${woord.nl}?`;
+      vraag1.textContent = `Wat is het italiaanse woord voor:`;
+      vraag2.textContent = `${woord.nl}?`;
       resultaat.textContent = "";
       document.getElementById("antwoord").value = "";
     }
