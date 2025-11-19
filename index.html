@@ -23,7 +23,7 @@
   </style>
 </head>
 <body>
-  <h1>🌍 Italiaanse woordjes leren (v5)</h1>
+  <h1>🌍 Italiaanse woordjes leren (v6)</h1>
 
 
   <button onclick="controleer()">Controleer</button>
@@ -93,7 +93,7 @@
 
     function volgende() {
         resultaat.textContent = `Het juiste antwoord is "${woorden[huidig].it}".`;
-        document.getElementById("antwoordDisp").value = "${woorden[huidig].it}";
+        document.getElementById("antwoordDisp").value = woorden[huidig].it;
         setTimeout(toonVraag, 1500);
         huidig = (huidig + 1) % woorden.length;
     }
