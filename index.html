@@ -29,7 +29,8 @@
   <button onclick="controleer()">Controleer</button>
   <button onclick="volgende()">Volgende</button><br>
   <p id="vraag1"></p> <p id="vraag2"></p> 
-  <input type="text" id="antwoord" placeholder="Typ het antwoord...">
+  <input type="text" id="antwoordType" placeholder="Typ het antwoord...">
+  <input type="text" id="antwoordDisp" placeholder="...">
 
   <p id="resultaat"></p>
 
@@ -76,11 +77,11 @@
       vraag1.textContent = `Wat is het italiaanse woord voor:`;
       vraag2.textContent = `${woord.nl}?`;
       resultaat.textContent = "";
-      document.getElementById("antwoord").value = "";
+      document.getElementById("antwoordType").value = "";
     }
 
     function controleer() {
-      const invoer = document.getElementById("antwoord").value.trim().toLowerCase();
+      const invoer = document.getElementById("antwoordType").value.trim().toLowerCase();
       if (invoer === woorden[huidig].it) {
         resultaat.textContent = "✅ Goed!";
       } else {
@@ -92,6 +93,7 @@
 
     function volgende() {
         resultaat.textContent = `Het juiste antwoord is "${woorden[huidig].it}".`;
+        document.getElementById("antwoordDisp").value = "${woorden[huidig].it}";
         setTimeout(toonVraag, 1500);
         huidig = (huidig + 1) % woorden.length;
     }
