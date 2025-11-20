@@ -23,7 +23,7 @@
   </style>
 </head>
 <body>
-  <h1>🌍 Italiaanse woordjes leren (v9)</h1>
+  <h1>🌍 Italiaanse woordjes leren (v10)</h1>
 
 
   <button onclick="controleer()">Controleer</button>
@@ -31,8 +31,8 @@
   <p id="vraag1"></p>
   <input type="text" id="GevraagdeWoord" style="background-color: lightblue;">
   <p id="vraag2"></p> 
-  <input type="text" id="antwoordType" placeholder="Typ het antwoord...">
-  <input type="text" id="antwoordDisp" placeholder="...">
+  <input type="text" id="antwoordType" placeholder="Typ het antwoord..."><br>
+  <input type="text" id="antwoordDisp" style="background-color: lightpink;" placeholder="...">
 
   <p id="resultaat"></p>
 
@@ -87,7 +87,7 @@
 
     function controleer() {
       const invoer = document.getElementById("antwoordType").value.trim().toLowerCase();
-      if (invoer === woorden[huidig].it) {
+      if (invoer = woorden[huidig].it) {
         resultaat.textContent = "✅ Goed!";
       } else {
         resultaat.textContent = `❌ Fout, het juiste antwoord is "${woorden[huidig].it}".`;
