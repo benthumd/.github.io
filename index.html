@@ -23,7 +23,7 @@
   </style>
 </head>
 <body>
-  <h1>🌍 Italiaanse woordjes leren (v8)</h1>
+  <h1>🌍 Italiaanse woordjes leren (v9)</h1>
 
 
   <button onclick="controleer()">Controleer</button>
@@ -78,8 +78,9 @@
       const woord = woorden[huidig];
       document.getElementById("antwoordDisp").value = "";
       vraag1.textContent = `Wat is het italiaanse woord voor:`;
-//      GevraagdeWoord.textContent = `${woord.nl}`;
-      GevraagdeWoord.textContent =`${woord.nl}`;
+//    GevraagdeWoord.textContent = `${woord.nl}`;
+//    document.getElementById("antwoordDisp").value
+      document.getElementById("GevraagdeWoord").value =`${woord.nl}`;
       resultaat.textContent = "";
       document.getElementById("antwoordType").value = "";
     }
