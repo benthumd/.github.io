@@ -23,7 +23,7 @@
   </style>
 </head>
 <body>
-  <h1>🌍 Italiaanse woordjes leren (v12)</h1>
+  <h1>🌍 Italiaanse woordjes leren (v13)</h1>
 
 
   <button onclick="controleer()">Controleer</button>
@@ -104,7 +104,7 @@
             document.getElementById("volgende").value = "Naar volgend woord";
         } else {
             StatusDenkOfKijk = 0;
-   //       setTimeout(toonVraag, 1500);
+            setTimeout(toonVraag, 200);
             huidig = (huidig + 1) % woorden.length;
         } 
     }
