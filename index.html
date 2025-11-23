@@ -27,15 +27,14 @@
 
 
   <button onclick="controleer()">Controleer</button>
-  <button onclick="volgende()">Volgende</button><br>
   <p id="vraag1"></p>
   <input type="text" id="GevraagdeWoord" style="background-color: lightblue;">
   <p id="vraag2"></p> 
   <input type="text" id="antwoordType" placeholder="Typ het antwoord..."><br>
   <input type="text" id="antwoordDisp" style="background-color: lightpink;" placeholder="...">
-
   <p id="resultaat"></p>
-
+  <button onclick="volgende()">Volgende</button><br>
+  
   <script>
     // Je woordenlijst
     const woorden = [
@@ -71,6 +70,7 @@
     ];
 
     let huidig = 0;
+    let StatusDenkOfKijk = 0
     const vraag = document.getElementById("vraag");
     const resultaat = document.getElementById("resultaat");
 
@@ -99,8 +99,14 @@
     function volgende() {
         resultaat.textContent = `Het juiste antwoord is "${woorden[huidig].it}".`;
         document.getElementById("antwoordDisp").value = `${woorden[huidig].it}`;
-        setTimeout(toonVraag, 1500);
-        huidig = (huidig + 1) % woorden.length;
+        if (StatusDenkOfKijk = 0) {
+            StatusDenkOfKijk = 1;
+            document.getElementById("volgens").value = "Naar volgend woord";
+        } else {
+            StatusDenkOfKijk = 0;
+   //       setTimeout(toonVraag, 1500);
+            huidig = (huidig + 1) % woorden.length;
+        } 
     }
     
     toonVraag();
