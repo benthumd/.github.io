@@ -23,7 +23,7 @@
   </style>
 </head>
 <body>
-  <h1>🌍 Italiaanse woordjes leren (v16) 070626</h1>
+  <h1>🌍 Italiaanse woordjes leren (v17) 070626</h1>
 
 
   <button onclick="controleer()">Controleer</button>
@@ -103,12 +103,14 @@
             StatusDenkOfKijk = 1;
             document.getElementById("volgende").value = "Naar volgend woord";
             setTimeout(toonVraag, 2000);
+            vraag1.textContent = `Wat is het italiaanse woord voor1:`;
         } else {
             StatusDenkOfKijk = 0;
             setTimeout(toonVraag, 1000);
             document.getElementById("volgende").value = "Naar volgend woord2";
             setTimeout(toonVraag, 2000);
             huidig = (huidig + 1) % woorden.length;
+            vraag1.textContent = `Wat is het italiaanse woord voor2:`;
         } 
     }
     
