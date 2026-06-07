@@ -26,7 +26,7 @@
   <h1>🌍 Italiaanse woordjes leren (v17) 070626</h1>
 
 
-  <button onclick="controleer()">Controleer</button>
+  <button onclick="controleer()">Controleeeer</button>
   <p id="vraag1"></p>
   <input type="text" id="GevraagdeWoord" style="background-color: lightblue;">
   <p id="vraag2"></p> 
@@ -76,13 +76,13 @@
 
     function toonVraag() {
       const woord = woorden[huidig];
-      document.getElementById("antwoordDisp").value = "";
+      document.getElementById("antwoordDisp").value = "xx";
       vraag1.textContent = `Wat is het italiaanse woord voor:`;
 //    GevraagdeWoord.textContent = `${woord.nl}`;
 //    document.getElementById("antwoordDisp").value
       document.getElementById("GevraagdeWoord").value =`${woord.nl}`;
-      resultaat.textContent = "";
-      document.getElementById("antwoordType").value = "";
+      resultaat.textContent = "p";
+      document.getElementById("antwoordType").value = "yy";
     }
 
     function controleer() {
