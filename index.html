@@ -23,12 +23,13 @@
   </style>
 </head>
 <body>
-  <h1>🌍 Italiaanse woordjes leren (v19) 070626</h1>
+  <h1>🌍 Italiaanse woordjes leren (v20) 070626</h1>
 
 
   <button onclick="controleer()">Controleeeer</button>
   <p id="vraag1"></p>
-  <input type="text" id="GevraagdeWoord" style="background-color: lightblue;">
+  <input type="text" id="GevraagdeWoord" style="background-color: lightblue;" style="width: 500px;">
+  <input type="text" id="Antwoord1" style="background-color: lightpink;" style="width: 600px;>
   <p id="vraag2"></p> 
   <input type="text" id="antwoordType" placeholder="Typ het antwoord..."><br>
   <input type="text" id="antwoordDisp" style="background-color: lightpink;" placeholder="...">
@@ -100,6 +101,8 @@
     function volgende() {
         resultaat.textContent = `Het juiste antwoord is "${woorden[huidig].it}".`;
         document.getElementById("antwoordDisp").value = `${woorden[huidig].it}`;
+        document.getElementById("Antwoord1").value = `${woorden[huidig].it}`;
+      
         if (StatusDenkOfKijk === 0) {
             StatusDenkOfKijk = 1;
            // document.getElementById("volgende").value = "Naar volgend woord";
