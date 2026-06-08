@@ -16,6 +16,11 @@
       font-size: 16px;
       margin: 8px;
     }
+    #volgende {
+      padding-top: 20px;
+      padding-bottom: 20px;
+      font-size: 18px;
+    }
     #resultaat {
       font-size: 18px;
       margin-top: 15px;
@@ -23,12 +28,12 @@
   </style>
 </head>
 <body>
-  <h1>🌍 Italiaanse woordjes leren (v20) 070626</h1>
+  <h1>🌍 Italiaanse woordjes leren (v21) 080626</h1>
 
 
   <button onclick="controleer()">Controleeeer</button>
   <p id="vraag1"></p>
-  <input type="text" id="GevraagdeWoord" style="background-color: lightblue;" style="width: 500px;">
+  <input type="text" id="Vraag1" style="background-color: lightblue;" style="width: 500px;">
   <input type="text" id="Antwoord1" style="background-color: lightpink;" style="width: 600px;>
   <p id="vraag2"></p> 
   <input type="text" id="antwoordType" placeholder="Typ het antwoord..."><br>
@@ -80,9 +85,9 @@
       const woord = woorden[huidig];
       document.getElementById("antwoordDisp").value = "xx";
       vraag1.textContent = `Wat is het italiaanse woord voor:`;
-//    GevraagdeWoord.textContent = `${woord.nl}`;
+//    Vraag1.textContent = `${woord.nl}`;
 //    document.getElementById("antwoordDisp").value
-      document.getElementById("GevraagdeWoord").value =`${woord.nl}`;
+      document.getElementById("Vraag1").value =`${woord.nl}`;
       resultaat.textContent = "p";
 //      document.getElementById("antwoordType").value = "yy";
     }
