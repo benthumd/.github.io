@@ -31,105 +31,106 @@
   </style>
 </head>
 <body>
-  <h1>🌍 Italiaanse woordjes leren (v23) 080626</h1>
+  <h1>🌍 Italiaanse woordjes leren (v29) 090626</h1>
 
-
-  <button onclick="controleer()">Controleeeer</button>
+  <button onclick="controleer()">Controleer</button>
   <p id="vraag1"></p>
-  <input type="text" id="Vraag1" style="background-color: lightblue;" style="width: 500px;">
-  <input type="text" id="Antwoord1" style="background-color: lightpink;" style="width: 600px;><br>
-  <input type="text" id="Vraag2" style="background-color: lightblue;" style="width: 500px;">
-  <input type="text" id="Antwoord2" style="background-color: lightpink;" style="width: 600px;>
-  <p id="vraag3"></p> 
+  <input type="text" id="Vraag1" style="background-color: lightblue; width: 500px;">
+  <input type="text" id="Antwoord1" style="background-color: lightpink; width: 600px;"><br>
+  <input type="text" id="Vraag2" style="background-color: lightblue; width: 500px;">
+  <input type="text" id="Antwoord2" style="background-color: lightpink; width: 600px;"><br>
   <input type="text" id="antwoordType" placeholder="Typ het antwoord..."><br>
-  <input type="text" id="antwoordDisp" style="background-color: lightpink;" placeholder="...">
   <p id="resultaat"></p>
-<!--  <button onclick="volgende()">Volgende</button><br>  -->
   <button id="volgende" onclick="volgende()">Volgende</button>
   
   <script>
-    // Je woordenlijst
     const woorden = [
-
-{ nl: "zijn", it: "essere" },
-{ nl: "hebben", it: "avere" },
-{ nl: "kunnen, mogen [als z.nw.: macht]", it: "potere" },
-{ nl: "weten, kennen; kunnen, weten hoe te [soms: smaken/ruiken/rieken (naar)]", it: "sapere" },
-{ nl: "moeten [ook: verschuldigd zijn (aan), te danken hebben (aan)] [als z.nw.: plicht]", it: "dovere" },
-{ nl: "willen", it: "volere" },
-{ nl: "komen", it: "venire" },
-{ nl: "houden, vasthouden", it: "tenere" },
-{ nl: "(ver)blijven, zich bevinden, zijn", it: "stare" },
-{ nl: "geven", it: "dare" },
-{ nl: "gaan", it: "andare" },
-{ nl: "doen; maken", it: "fare" },
-{ nl: "zeggen", it: "dire" },
-{ nl: "drinken", it: "bere" },
-{ nl: "bevallen [leuk/lekker vinden] [als z.nw.: plezier, genoegen, genot]", it: "piacere" },
-{ nl: "worden [door verandering of groei]", it: "diventare" },
-{ nl: "worden [door verandering of groei]", it: "divenire" },
-{ nl: "openen", it: "aprire" },
-{ nl: "kussen, zoenen", it: "baciare" },
-{ nl: "dansen", it: "ballare" },
-{ nl: "zoeken [+ di: proberen te]", it: "cercare" },
-
-      
-//      { nl: "hond2", en: "dog" },
-//      { nl: "kat", en: "cat" },
-//      { nl: "huis", en: "house" },
-//      { nl: "boek", en: "book" },
-//      { nl: "appel", en: "apple" }
+      { nl: "verstoppen", it: "nascondere" },
+      { nl: "gek in het hoofd", it: "fuori di testa" },
+      { nl: "doden, vermoorden", it: "ammazzare" },
+      { nl: "lobby", it: "atrio" },
+      { nl: "uitdoen", it: "togliere" },
+      { nl: "nl", it: "id" },
+      { nl: "nl", it: "id" },
+      { nl: "nl", it: "id" },
+      { nl: "nl", it: "id" },
+      { nl: "nl", it: "id" },
+      { nl: "zijn", it: "essere" },
+      { nl: "hebben", it: "avere" },
+      { nl: "kunnen, mogen [als z.nw.: macht]", it: "potere" },
+      { nl: "weten, kennen; kunnen, weten hoe te [soms: smaken/ruiken/rieken (naar)]", it: "sapere" },
+      { nl: "moeten [ook: verschuldigd zijn (aan), te danken hebben (aan)] [als z.nw.: plicht]", it: "dovere" },
+      { nl: "willen", it: "volere" },
+      { nl: "komen", it: "venire" },
+      { nl: "houden, vasthouden", it: "tenere" },
+      { nl: "(ver)blijven, zich bevinden, zijn", it: "stare" },
+      { nl: "geven", it: "dare" },
+      { nl: "gaan", it: "andare" },
+      { nl: "doen; maken", it: "fare" },
+      { nl: "zeggen", it: "dire" },
+      { nl: "drinken", it: "bere" },
+      { nl: "bevallen [leuk/lekker vinden] [als z.nw.: plezier, genoegen, genot]", it: "piacere" },
+      { nl: "worden [door verandering of groei]", it: "diventare" },
+      { nl: "worden [door verandering of groei]", it: "divenire" },
+      { nl: "openen", it: "aprire" },
+      { nl: "kussen, zoenen", it: "baciare" },
+      { nl: "dansen", it: "ballare" },
+      { nl: "zoeken [+ di: proberen te]", it: "cercare" },
     ];
 
     let huidig = 0;
-    let StatusDenkOfKijk = 0
-    const vraag = document.getElementById("vraag");
     const resultaat = document.getElementById("resultaat");
 
-    function toonVraag() {
-      const woord = woorden[huidig];
-      document.getElementById("antwoordDisp").value = "xx";
-      vraag1.textContent = `Wat is het italiaanse woord voor:`;
-//    Vraag1.textContent = `${woord.nl}`;
-//    document.getElementById("antwoordDisp").value
-      document.getElementById("Vraag1").value =`${woord.nl}`;
-      resultaat.textContent = "p";
-//      document.getElementById("antwoordType").value = "yy";
+    function wacht(ms) {
+      return new Promise(resolve => setTimeout(resolve, ms));
     }
 
-    function controleer() {
+    function toonVraag() {
+      document.getElementById("vraag1").textContent = `Wat is het italiaanse woord voor:`;
+      document.getElementById("Vraag2").value = woorden[huidig].nl;
+      document.getElementById("Antwoord2").value = "";
+      document.getElementById("antwoordType").value = "";
+    }
+
+    async function controleer() {
       const invoer = document.getElementById("antwoordType").value.trim().toLowerCase();
+
+      // stap 1: antwoord tonen in Antwoord2
+      document.getElementById("Antwoord2").value = woorden[huidig].it;
       if (invoer === woorden[huidig].it) {
         resultaat.textContent = "✅ Goed!";
       } else {
-        resultaat.textContent = `❌ Fout, het juiste antwoord is "${woorden[huidig].it}".`;
+        resultaat.textContent = `❌ Fout`;
       }
+
+      // stap 2: 1 seconde wachten
+      await wacht(1000);
+
+      // stap 3: vraag2 en antwoord2 omhoog naar vraag1 en antwoord1
+      document.getElementById("Vraag1").value = document.getElementById("Vraag2").value;
+      document.getElementById("Antwoord1").value = document.getElementById("Antwoord2").value;
+
+      // stap 4: volgende woord in vraag2, antwoord2 leegmaken
       huidig = (huidig + 1) % woorden.length;
-      setTimeout(toonVraag, 1500);
+      toonVraag();
     }
 
-    function volgende() {
-        resultaat.textContent = `Het juiste antwoord is "${woorden[huidig].it}".`;
-        document.getElementById("antwoordDisp").value = `${woorden[huidig].it}`;
-        document.getElementById("Antwoord1").value = `${woorden[huidig].it}`;
-      
-        if (StatusDenkOfKijk === 0) {
-            StatusDenkOfKijk = 1;
-           // document.getElementById("volgende").value = "Naar volgend woord";
-            document.getElementById("volgende").textContent = "Naar volgend woord";
-            setTimeout(toonVraag, 2000);
-            vraag1.textContent = `Wat is het italiaanse woord voor1:`;
-        } else {
-            StatusDenkOfKijk = 0;
-            setTimeout(toonVraag, 1000);
-        //    document.getElementById("volgende").value = "Naar volgend woord2";
-          document.getElementById("volgende").textContent = "Naar volgend woord2";
-            setTimeout(toonVraag, 2000);
-            huidig = (huidig + 1) % woorden.length;
-            vraag1.textContent = `Wat is het italiaanse woord voor2:`;
-        } 
+    async function volgende() {
+      // stap 1: antwoord tonen in Antwoord2
+      document.getElementById("Antwoord2").value = woorden[huidig].it;
+
+      // stap 2: 1 seconde wachten
+      await wacht(1000);
+
+      // stap 3: vraag2 en antwoord2 omhoog naar vraag1 en antwoord1
+      document.getElementById("Vraag1").value = document.getElementById("Vraag2").value;
+      document.getElementById("Antwoord1").value = document.getElementById("Antwoord2").value;
+
+      // stap 4: volgende woord in vraag2, antwoord2 leegmaken
+      huidig = (huidig + 1) % woorden.length;
+      toonVraag();
     }
-    
+
     toonVraag();
   </script>
 </body>
